@@ -17,6 +17,7 @@ import javax.management.ObjectName;
 import javax.management.Query;
 import javax.management.QueryExp;
 import javax.management.ReflectionException;
+import javax.validation.constraints.Null;
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -46,13 +47,13 @@ public class StartLoggingUtil {
         try {
             Map<String, String> serverSettings = getIpAddressAndPort();
 
-            log.info("=== Logging has started on:\t" +
+            log.info("=== Server has started:\t" +
                     serverSettings.get("address") + ":" +
                     serverSettings.get("port") + " ==="
             );
 
         } catch(Exception e){
-            log.error(e.getMessage());
+            log.error("ERROR", e);
         }
 
     }
